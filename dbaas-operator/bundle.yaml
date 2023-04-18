@@ -1,0 +1,16 @@
+apiVersion: core.rukpak.io/v1alpha1
+kind: BundleDeployment
+metadata:
+  name: dbaas
+spec:
+  provisionerClassName: core-rukpak-io-plain
+  template:
+    metadata:
+      labels:
+        app: dbaas
+    spec:
+      source:
+        type: image
+        image:
+          ref: docker.io/gen1us2k/dbaas:latest
+      provisionerClassName: core-rukpak-io-plain

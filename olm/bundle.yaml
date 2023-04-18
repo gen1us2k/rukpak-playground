@@ -1,0 +1,16 @@
+apiVersion: core.rukpak.io/v1alpha1
+kind: BundleDeployment
+metadata:
+  name: olm
+spec:
+  provisionerClassName: core-rukpak-io-plain
+  template:
+    metadata:
+      labels:
+        app: olm
+    spec:
+      source:
+        type: image
+        image:
+          ref: gen1us2k/olm:latest
+      provisionerClassName: core-rukpak-io-plain
