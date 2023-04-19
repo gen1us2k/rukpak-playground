@@ -24,4 +24,13 @@ olmv1             olmv1-59848f             InstallationSucceeded   13m
 
 # Wait for the installation of OLM
 kubectl apply -f operators/bundle.yaml 
+
+# Wait until VM operator csv will be present
+ kubectl get csv
+NAME                                      DISPLAY                                                      VERSION   REPLACES                                  PHASE
+percona-server-mongodb-operator.v1.14.0   Percona Distribution for MongoDB Operator                    1.14.0    percona-server-mongodb-operator.v1.13.1   Succeeded
+percona-xtradb-cluster-operator.v1.12.0   Percona Operator for MySQL based on Percona XtraDB Cluster   1.12.0    percona-xtradb-cluster-operator.v1.11.0   Succeeded
+victoriametrics-operator.v0.29.1          VictoriaMetrics Operator                                     0.29.1    victoriametrics-operator.v0.27.2          Succeeded
 ```
+
+kubectl apply -f dbaas/bundle.yaml
