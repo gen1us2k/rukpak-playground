@@ -1,0 +1,45 @@
+kind: OperatorGroup
+apiVersion: operators.coreos.com/v1
+metadata:
+  name: og-single
+  namespace: default
+spec:
+  targetNamespaces:
+  - default
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: victoriametrics-operator
+  namespace: default
+spec:
+  channel: stable-v0
+  installPlanApproval: Automatic
+  name: victoriametrics-operator
+  source: percona-dbaas-catalog
+  sourceNamespace: olm
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: percona-xtradb-cluster-operator
+  namespace: default
+spec:
+  channel: stable-v1
+  installPlanApproval: Automatic
+  name: percona-xtradb-cluster-operator
+  source: percona-dbaas-catalog
+  sourceNamespace: olm
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: percona-server-mongodb-operator
+  namespace: default
+spec:
+  channel: stable-v1
+  installPlanApproval: Automatic
+  name: percona-server-mongodb-operator
+  source: percona-dbaas-catalog
+  sourceNamespace: olm
+---
